@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/home/diyanshu/.android/build-cache/d7536945dae02c559900b73c2f094b2dba93196f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/home/diyanshu/Desktop/android-studio/FareyeProject/app/build/intermediates/pre-dexed/debug/classes_c2d968eccaac38716521ad4053b4f06fbe8bfecb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/diyanshu/Android/Sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/home/diyanshu/Desktop/android-studio/FareyeProject/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.2_0fa2eca71fc429ca05308a87bc32adf31946d87a.jar" />
+    </item>
+
+</items>

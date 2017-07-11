@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/home/diyanshu/Desktop/android-studio/FareyeProject/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/home/diyanshu/.android/build-cache/387af99f8090c818388400caf5de14e90331a9ec/output/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/home/diyanshu/Desktop/android-studio/FareyeProject/app/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/home/diyanshu/.android/build-cache/387af99f8090c818388400caf5de14e90331a9ec/output/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/home/diyanshu/Desktop/android-studio/FareyeProject/app/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/home/diyanshu/.android/build-cache/387af99f8090c818388400caf5de14e90331a9ec/output/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/home/diyanshu/Desktop/android-studio/FareyeProject/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/home/diyanshu/.android/build-cache/387af99f8090c818388400caf5de14e90331a9ec/output/res/layout-v21/notification_template_icon_group.xml"
+    }
+]

@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/home/diyanshu/Desktop/android-studio/FareyeProject/app/build/intermediates/res/merged/debug/layout-v11/notification_template_big_media_narrow.xml",
+        "source": "/home/diyanshu/.android/build-cache/387af99f8090c818388400caf5de14e90331a9ec/output/res/layout-v11/notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "/home/diyanshu/Desktop/android-studio/FareyeProject/app/build/intermediates/res/merged/debug/layout-v11/notification_template_big_media.xml",
+        "source": "/home/diyanshu/.android/build-cache/387af99f8090c818388400caf5de14e90331a9ec/output/res/layout-v11/notification_template_big_media.xml"
+    },
+    {
+        "merged": "/home/diyanshu/Desktop/android-studio/FareyeProject/app/build/intermediates/res/merged/debug/layout-v11/notification_template_big_media_narrow_custom.xml",
+        "source": "/home/diyanshu/.android/build-cache/387af99f8090c818388400caf5de14e90331a9ec/output/res/layout-v11/notification_template_big_media_narrow_custom.xml"
+    },
+    {
+        "merged": "/home/diyanshu/Desktop/android-studio/FareyeProject/app/build/intermediates/res/merged/debug/layout-v11/notification_media_cancel_action.xml",
+        "source": "/home/diyanshu/.android/build-cache/387af99f8090c818388400caf5de14e90331a9ec/output/res/layout-v11/notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "/home/diyanshu/Desktop/android-studio/FareyeProject/app/build/intermediates/res/merged/debug/layout-v11/notification_template_big_media_custom.xml",
+        "source": "/home/diyanshu/.android/build-cache/387af99f8090c818388400caf5de14e90331a9ec/output/res/layout-v11/notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "/home/diyanshu/Desktop/android-studio/FareyeProject/app/build/intermediates/res/merged/debug/layout-v11/notification_media_action.xml",
+        "source": "/home/diyanshu/.android/build-cache/387af99f8090c818388400caf5de14e90331a9ec/output/res/layout-v11/notification_media_action.xml"
+    }
+]
