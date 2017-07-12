@@ -30,6 +30,7 @@ public class MainActivityOn extends AppCompatActivity {
     ListView lv;
     ImageView thumbnailImage;
 
+
     @Override
     /**{@link com.example.diyanshu.fareyeproject.R.anim}**/
     protected void onCreate(Bundle savedInstanceState) {
