@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/diyanshu/Desktop/android-studio/FareyeProject/app/src/main/AndroidManifest.xml:2:1-23:12
+ADDED from /home/diyanshu/Desktop/android-studio/FareyeProject/app/src/main/AndroidManifest.xml:2:1-24:12
 	package
 		ADDED from /home/diyanshu/Desktop/android-studio/FareyeProject/app/src/main/AndroidManifest.xml:3:5-49
 		INJECTED from /home/diyanshu/Desktop/android-studio/FareyeProject/app/src/main/AndroidManifest.xml
@@ -18,7 +18,7 @@ ADDED from /home/diyanshu/Desktop/android-studio/FareyeProject/app/src/main/Andr
 	android:name
 		ADDED from /home/diyanshu/Desktop/android-studio/FareyeProject/app/src/main/AndroidManifest.xml:5:22-64
 application
-ADDED from /home/diyanshu/Desktop/android-studio/FareyeProject/app/src/main/AndroidManifest.xml:7:5-21:19
+ADDED from /home/diyanshu/Desktop/android-studio/FareyeProject/app/src/main/AndroidManifest.xml:7:5-22:19
 MERGED from [com.android.support:appcompat-v7:25.3.1] /home/diyanshu/.android/build-cache/387af99f8090c818388400caf5de14e90331a9ec/output/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-v4:25.3.1] /home/diyanshu/.android/build-cache/a723650731929009c4db6b622c26c23907f7e4a0/output/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-fragment:25.3.1] /home/diyanshu/.android/build-cache/24e724fab71c08d0914127a02bbcc8ae9502d4de/output/AndroidManifest.xml:29:5-20
@@ -55,6 +55,10 @@ category#android.intent.category.LAUNCHER
 ADDED from /home/diyanshu/Desktop/android-studio/FareyeProject/app/src/main/AndroidManifest.xml:18:17-77
 	android:name
 		ADDED from /home/diyanshu/Desktop/android-studio/FareyeProject/app/src/main/AndroidManifest.xml:18:27-74
+activity#com.example.diyanshu.fareyeproject.ShowImage
+ADDED from /home/diyanshu/Desktop/android-studio/FareyeProject/app/src/main/AndroidManifest.xml:21:9-56
+	android:name
+		ADDED from /home/diyanshu/Desktop/android-studio/FareyeProject/app/src/main/AndroidManifest.xml:21:19-44
 uses-sdk
 INJECTED from /home/diyanshu/Desktop/android-studio/FareyeProject/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:25.3.1] /home/diyanshu/.android/build-cache/387af99f8090c818388400caf5de14e90331a9ec/output/AndroidManifest.xml:21:5-23:78

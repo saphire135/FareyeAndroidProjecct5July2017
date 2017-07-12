@@ -12,6 +12,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/diyanshu/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.4.0/f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2/picasso-2.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2">
+        <dex dex="/home/diyanshu/Desktop/android-studio/FareyeProject/app/build/intermediates/pre-dexed/debug/picasso-2.4.0_3abcb09e62e7e3b69d2918f14ab19dd317cab5ae.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/diyanshu/Android/Sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
         jumboMode="false"
         optimize="true"

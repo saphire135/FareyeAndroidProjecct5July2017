@@ -1,12 +1,16 @@
 package com.example.diyanshu.fareyeproject;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -23,6 +27,7 @@ public class MainActivityOn extends AppCompatActivity {
     Button buttn1;
     Getting[] getdata = new Getting[2];//Getting ftype array.
     ListView lv;
+    ImageView thumbnailImage;
 
     @Override
     /**{@link com.example.diyanshu.fareyeproject.R.anim}**/
@@ -41,31 +46,86 @@ public class MainActivityOn extends AppCompatActivity {
                 d3.deleteall();
                 lv = (ListView) findViewById(R.id.listview);
                 lv.setAdapter(null);
+                Log.d("Success", "database is deleted.");
                 //List<Getting> l = new ArrayList<Getting>();
                 //lv.setAdapter(new CustomAdapter(getParent(),l));
             }
         });
 
         final Button buttn2 = (Button) findViewById(R.id.button2);//Creating the button with its button id
+        final SwipeDetector swipeDetector = new SwipeDetector();
         buttn2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                new HttpHandler().execute("http://jsonplaceholder.typicode.com/photos");//calling http methods.
-
                 Databases d = new Databases(MainActivityOn.this);
+
+                int icount = d.getContactsCount();
+                //calling http methods.
+
+                if (icount > 0) {
+                    Log.d("Success", "Database already have values");
+                } else {
+                    new HttpHandler().execute("http://jsonplaceholder.typicode.com/photos");
+                    Log.d("Success", "Database is updating");
+
+                    //Logs are used to show what to know whether it got success or it get failed.
+                    // Code here executes on main thread after user presses button
+                }
+
                 lv = (ListView) findViewById(R.id.listview);
 
                 lv.setAdapter(new CustomAdapter(MainActivityOn.this, d.getAllContacts()));
 
-                Log.d("Details", "HI");//Logs are used to show what to know whether it got success or it get failed.
-                // Code here executes on main thread after user presses button
+                Log.d("Details", "HI");
+                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    public void onItemClick(AdapterView<?> parent, View view,
+                                            int position, long id) {
+                        if (swipeDetector.swipeDetected()) {
+                            Log.d("UserViewActivity", "swipe detect calleedddd");
+                            if (swipeDetector.getAction() == SwipeDetector.Action.RL) {
+                                Log.d("UserViewActivity", "swipe calleedddd");
+                            } else {
+
+                            }
+                        } else {
+                            Object o = lv.getItemAtPosition(position);
+                            CustomAdapter str = (CustomAdapter) o;//As you are using Default String Adapter
+                            Log.d("UserViewActivity", "in onCreate");
+
+                            setContentView(R.layout.activity_show_image);
+                            thumbnailImage = (ImageView) findViewById(R.id.thumbnailurl);
+                            Intent intent = new Intent(MainActivityOn.this, ShowImage.class);
+                            startActivity(intent);
+//                            String url = intent.getStringExtra("url");
+//                            Picasso.with(MainActivityOn.this).load(url).into(thumbnailImage);
+                        }
+                        /*Object o = lv.getItemAtPosition(position);
+                        CustomAdapter str=(CustomAdapter)o;//As you are using Default String Adapter
+                        Log.d("UserViewActivity", "in onCreate");
+
+                        setContentView(R.layout.activity_show_image);
+                        thumbnailImage = (ImageView) findViewById(R.id.thumbnailurl);
+                        Intent intent = getIntent();
+                        String url = intent.getStringExtra("url");
+                        Picasso.with(MainActivityOn.this).load(url).into(thumbnailImage);*/
+                    }
+                });
+
             }
         });
 
     }
-
+        ProgressBar loadingDatabase ;
     class HttpHandler extends AsyncTask<String, String, String> {
 
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            loadingDatabase = (ProgressBar)findViewById(R.id.progressBar2);
+            loadingDatabase.setVisibility(View.VISIBLE);
+
+        }
 
         @Override
         protected String doInBackground(String... voids) {

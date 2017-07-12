@@ -1,12 +1,10 @@
 package com.example.diyanshu.fareyeproject;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -32,7 +30,7 @@ public class CustomAdapter extends ArrayAdapter<String> {
 
     }
 
-    TextView url;
+    ImageView url;
 
     @NonNull
     @Override
@@ -48,17 +46,8 @@ public class CustomAdapter extends ArrayAdapter<String> {
             final ImageView imageView = new ImageView(getContext());
             TextView name = (TextView) convertView.findViewById(R.id.name);
             name.setText(getdata.get(position).getTitle());
-            url = (TextView) convertView.findViewById(R.id.url);
-            url.setText(getdata.get(position).getUrl());
-            url.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View view) {
 
-                    Intent intent = new Intent(context, Show_Image.class);
-                    intent.putExtra("url", url.getText());
-                    context.startActivity(intent);
-                }
-            });
+            url = (ImageView) convertView.findViewById(R.id.thumbnailurl);
 
         }
         return convertView;

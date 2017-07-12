@@ -8,6 +8,10 @@
         "source": "/home/diyanshu/.android/build-cache/387af99f8090c818388400caf5de14e90331a9ec/output/res/layout/abc_search_view.xml"
     },
     {
+        "merged": "/home/diyanshu/Desktop/android-studio/FareyeProject/app/build/intermediates/res/merged/debug/layout/activity_show_image.xml",
+        "source": "/home/diyanshu/Desktop/android-studio/FareyeProject/app/src/main/res/layout/activity_show_image.xml"
+    },
+    {
         "merged": "/home/diyanshu/Desktop/android-studio/FareyeProject/app/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",
         "source": "/home/diyanshu/.android/build-cache/387af99f8090c818388400caf5de14e90331a9ec/output/res/layout/abc_action_menu_item_layout.xml"
     },

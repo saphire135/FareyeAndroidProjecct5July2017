@@ -9,6 +9,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,7 @@ public class Databases extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "contactsManager";
 
     // Contacts table name
-    private static final String TABLE_CONTACTS = "contacts";
+    public String TABLE_CONTACTS = "contacts";
 
     // Contacts Table Columns names
     private static final String KEY_ID = "id";
@@ -53,6 +54,7 @@ public class Databases extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+
     /**
      * All CRUD(Create, Read, Update, Delete) Operations
      */
@@ -75,9 +77,8 @@ public class Databases extends SQLiteOpenHelper {
         String selectQuery = "DELETE  FROM " + TABLE_CONTACTS;
 
         SQLiteDatabase db = this.getWritableDatabase();
-        db.rawQuery(selectQuery, null);
-
-
+        db.execSQL(selectQuery);
+//            db.
         db.close();
 
     }
@@ -121,16 +122,28 @@ public class Databases extends SQLiteOpenHelper {
         return contactList;
     }
 
+    String countQuery;
+    SQLiteDatabase db;
+
 
     // Getting contacts Count
     public int getContactsCount() {
-        String countQuery = "SELECT  * FROM " + TABLE_CONTACTS;
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(countQuery, null);
-        db.close();
-        cursor.close();
+        try {
+            countQuery = "SELECT  * FROM " + TABLE_CONTACTS;
+            db = this.getReadableDatabase();
+            Cursor cursor = db.rawQuery(countQuery, null);
+            int count = cursor.getCount();
+            db.close();
+            cursor.close();
 
-        // return count
-        return cursor.getCount();
+            return count;
+        }
+
+        catch (Exception e) {
+
+            Log.e("ERROR", e.getMessage(), e);//Logs are used to show what to know whether it got success or it get failed.
+        return 0;
+        }
+
     }
 }
