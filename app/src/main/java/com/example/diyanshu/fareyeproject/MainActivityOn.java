@@ -21,6 +21,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 
 public class MainActivityOn extends AppCompatActivity {
 
@@ -55,7 +56,7 @@ public class MainActivityOn extends AppCompatActivity {
         final Button buttn2 = (Button) findViewById(R.id.button2);//Creating the button with its button id
         final SwipeDetector swipeDetector = new SwipeDetector();
         buttn2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+            public void onClick(final View v) {
 
                 Databases d = new Databases(MainActivityOn.this);
 
@@ -73,41 +74,51 @@ public class MainActivityOn extends AppCompatActivity {
                 }
 
                 lv = (ListView) findViewById(R.id.listview);
+                final CustomAdapter customAdapter = new CustomAdapter(MainActivityOn.this, d.getAllContacts());
+                lv.setAdapter(customAdapter);
 
-                lv.setAdapter(new CustomAdapter(MainActivityOn.this, d.getAllContacts()));
-
-                Log.d("Details", "HI");
+                Log.d("Details", "Fetched");
                 lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     public void onItemClick(AdapterView<?> parent, View view,
                                             int position, long id) {
-                        if (swipeDetector.swipeDetected()) {
-                            Log.d("UserViewActivity", "swipe detect calleedddd");
-                            if (swipeDetector.getAction() == SwipeDetector.Action.RL) {
-                                Log.d("UserViewActivity", "swipe calleedddd");
-                            } else {
+                        customAdapter.getItem(position);
+                        Databases toGetUrl = new Databases(MainActivityOn.this);
+                        List<Getting> getUrl = toGetUrl.getAllContacts();
+                        String url = getUrl.get(position).getUrl();
+                        Intent intent = new Intent(MainActivityOn.this, ShowImage.class);
+                        intent.putExtra("url",url );
+                        startActivity(intent);
 
-                            }
-                        } else {
-                            Object o = lv.getItemAtPosition(position);
-                            CustomAdapter str = (CustomAdapter) o;//As you are using Default String Adapter
-                            Log.d("UserViewActivity", "in onCreate");
-
-                            setContentView(R.layout.activity_show_image);
-                            thumbnailImage = (ImageView) findViewById(R.id.thumbnailurl);
-                            Intent intent = new Intent(MainActivityOn.this, ShowImage.class);
-                            startActivity(intent);
-//                            String url = intent.getStringExtra("url");
-//                            Picasso.with(MainActivityOn.this).load(url).into(thumbnailImage);
-                        }
-                        /*Object o = lv.getItemAtPosition(position);
-                        CustomAdapter str=(CustomAdapter)o;//As you are using Default String Adapter
-                        Log.d("UserViewActivity", "in onCreate");
-
-                        setContentView(R.layout.activity_show_image);
-                        thumbnailImage = (ImageView) findViewById(R.id.thumbnailurl);
-                        Intent intent = getIntent();
-                        String url = intent.getStringExtra("url");
-                        Picasso.with(MainActivityOn.this).load(url).into(thumbnailImage);*/
+//                        if (swipeDetector.swipeDetected()) {
+//                            Log.d("UserViewActivity", "swipe detect calleedddd");
+//                            if (swipeDetector.getAction() == SwipeDetector.Action.RL) {
+//                                Log.d("UserViewActivity", "swipe calleedddd");
+//                            } else {
+//
+//                            }
+//                        } else {
+//                        Object o = lv.getItemAtPosition(position);
+//                        CustomAdapter str = (CustomAdapter) o;//As yo
+// u are using Default String Adapter
+//                        Log.d("UserViewActivity", "in onCreate");
+////                            Getting getdata = new Getting();
+//                        setContentView(R.layout.activity_show_image);
+//                        thumbnailImage = (ImageView) findViewById(R.id.thumbnailurl);
+//                        Intent intent = new Intent(MainActivityOn.this, ShowImage.class);
+//                        intent.putExtra("url",str );
+//                        startActivity(intent);
+////                            String url = intent.getStringExtra("url");
+////                            Picasso.with(MainActivityOn.this).load(url).into(thumbnailImage);
+////                        }
+//                        /*Object o = lv.getItemAtPosition(position);
+//                        CustomAdapter str=(CustomAdapter)o;//As you are using Default String Adapter
+//                        Log.d("UserViewActivity", "in onCreate");
+//
+//                        setContentView(R.layout.activity_show_image);
+//                        thumbnailImage = (ImageView) findViewById(R.id.thumbnailurl);
+//                        Intent intent = getIntent();
+//                        String url = intent.getStringExtra("url");
+//                        Picasso.with(MainActivityOn.this).load(url).into(thumbnailImage);*/
                     }
                 });
 
@@ -115,14 +126,16 @@ public class MainActivityOn extends AppCompatActivity {
         });
 
     }
-        ProgressBar loadingDatabase ;
+
+    ProgressBar loadingDatabase;
+
     class HttpHandler extends AsyncTask<String, String, String> {
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
 
-            loadingDatabase = (ProgressBar)findViewById(R.id.progressBar2);
+            loadingDatabase = (ProgressBar) findViewById(R.id.progressBar2);
             loadingDatabase.setVisibility(View.VISIBLE);
 
         }
@@ -156,7 +169,6 @@ public class MainActivityOn extends AppCompatActivity {
 
                 for (int i = 0; i < jsonArray.length(); i++) {
                     getdata[i] = Getting.fromJson(jsonArray.getJSONObject(i));
-
                 }
 
                 Log.d(getdata[0].getTitle(), "s");  //Edit here.//Logs are used to show what to know whether it got success or it get failed.

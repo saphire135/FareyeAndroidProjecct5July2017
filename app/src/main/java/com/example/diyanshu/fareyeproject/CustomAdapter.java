@@ -30,7 +30,7 @@ public class CustomAdapter extends ArrayAdapter<String> {
 
     }
 
-    ImageView url;
+    public ImageView url;
 
     @NonNull
     @Override
@@ -43,10 +43,10 @@ public class CustomAdapter extends ArrayAdapter<String> {
             TextView id = (TextView) convertView.findViewById(ident);
             id.setText(String.valueOf(getdata.get(position).getId()));
 
-            final ImageView imageView = new ImageView(getContext());
             TextView name = (TextView) convertView.findViewById(R.id.name);
             name.setText(getdata.get(position).getTitle());
 
+            final ImageView imageView = new ImageView(getContext());
             url = (ImageView) convertView.findViewById(R.id.thumbnailurl);
 
         }

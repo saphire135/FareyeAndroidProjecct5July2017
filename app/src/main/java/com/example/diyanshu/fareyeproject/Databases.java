@@ -99,9 +99,11 @@ public class Databases extends SQLiteOpenHelper {
         return getting;
     }
 
+    List<Getting> contactList;
+
     // Getting All Contacts
     public List<Getting> getAllContacts() {
-        List<Getting> contactList = new ArrayList<Getting>();
+        contactList = new ArrayList<Getting>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_CONTACTS;
 
@@ -137,13 +139,10 @@ public class Databases extends SQLiteOpenHelper {
             cursor.close();
 
             return count;
-        }
-
-        catch (Exception e) {
+        } catch (Exception e) {
 
             Log.e("ERROR", e.getMessage(), e);//Logs are used to show what to know whether it got success or it get failed.
-        return 0;
+            return 0;
         }
-
     }
 }

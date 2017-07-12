@@ -43,5 +43,4 @@ public class Getting {
         }
         return g;
     }
-
 }
